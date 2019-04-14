@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".exercise">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context=".dashboard"
+        tools:showIn="@layout/app_bar_dashboard">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="212dp"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:text="Steps"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/caltext"
+            android:layout_width="match_parent"
+            android:layout_height="22dp"
+            android:layout_marginStart="70dp"
+            android:layout_marginTop="436dp"
+            android:fontFamily="monospace"
+            android:gravity="left"
+            android:text="Calories"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="22dp"
+            android:layout_marginStart="290dp"
+            android:layout_marginTop="436dp"
+            android:fontFamily="monospace"
+            android:gravity="left"
+            android:text="Miles"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.promitee.fitnesstracker.ArcView
+            android:id="@+id/myArc"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="118dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="143dp"
+            app:animatable="true"
+            app:arcActiveColor="#1971ff"
+            app:arcInactiveColor="#501971ff"
+            app:arcWidth="50px"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.38"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:progressInPercentage="false"
+            app:text="0"
+            app:textColor="#1971ff"
+            app:textSize="35dp" />
+
+        <com.promitee.fitnesstracker.ArcView
+            android:id="@+id/Calories"
+            android:layout_width="175dp"
+            android:layout_height="175dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="324dp"
+            android:layout_marginEnd="143dp"
+            app:animatable="true"
+            app:arcActiveColor="#1971ff"
+            app:arcInactiveColor="#501971ff"
+            app:arcWidth="50px"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.094"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:progressInPercentage="false"
+            app:text="0"
+            app:textColor="#1971ff"
+            app:textSize="35dp" />
+
+        <com.promitee.fitnesstracker.ArcView
+            android:id="@+id/kms"
+            android:layout_width="175dp"
+            android:layout_height="175dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="143dp"
+            android:layout_marginTop="324dp"
+            android:layout_marginEnd="16dp"
+            app:animatable="true"
+            app:arcActiveColor="#1971ff"
+            app:arcInactiveColor="#501971ff"
+            app:arcWidth="50px"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:progressInPercentage="false"
+            app:text="0"
+            app:textColor="#1971ff"
+            app:textSize="35dp" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="104dp"
+            android:background="@drawable/buttonshape"
+            android:text="Start"
+            android:textColor="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Calories" />
+
+        <TextView
+            android:id="@+id/watch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="164dp"
+            android:layout_marginTop="41dp"
+            android:layout_marginEnd="163dp"
+            android:layout_marginBottom="34dp"
+            android:text="00:00:00"
+            android:textSize="22dp"
+            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Calories" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+</FrameLayout>

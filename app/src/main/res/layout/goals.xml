@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".record">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context=".dashboard"
+        tools:showIn="@layout/app_bar_dashboard">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="330dp"
+            android:layout_height="21dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="212dp"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:text="BMI"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.promitee.fitnesstracker.ArcView
+            android:id="@+id/bmi"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="118dp"
+            android:layout_marginTop="88dp"
+            android:layout_marginEnd="143dp"
+            app:animatable="true"
+            app:arcActiveColor="#1971ff"
+            app:arcInactiveColor="#501971ff"
+            app:arcWidth="50px"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.26"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:progressInPercentage="false"
+            app:text="0"
+            app:textColor="#1971ff"
+            app:textSize="35dp" />
+
+        <com.promitee.fitnesstracker.ArcView
+            android:id="@+id/weightArc"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="288dp"
+            app:animatable="true"
+            app:arcActiveColor="#1971ff"
+            app:arcInactiveColor="#501971ff"
+            app:arcWidth="50px"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:progressInPercentage="false"
+            app:text="0"
+            app:textColor="#1971ff"
+            app:textSize="35dp" />
+
+        <com.promitee.fitnesstracker.ArcView
+            android:id="@+id/stepsArc"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="456dp"
+            app:animatable="true"
+            app:arcActiveColor="#1971ff"
+            app:arcInactiveColor="#501971ff"
+            app:arcWidth="50px"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:progressInPercentage="false"
+            app:text="0"
+            app:textColor="#1971ff"
+            app:textSize="35dp" />
+
+        <EditText
+            android:id="@+id/weight"
+            android:layout_width="155dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="10dp"
+            android:ems="10"
+            android:hint="85"
+            android:inputType="numberSigned"
+            app:layout_constraintBottom_toTopOf="@+id/weightArc"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bmi"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/steps"
+            android:layout_width="155dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="65dp"
+            android:layout_marginBottom="10dp"
+            android:ems="10"
+            android:inputType="numberSigned"
+            android:hint="5000"
+            app:layout_constraintBottom_toTopOf="@+id/updateSteps"
+            app:layout_constraintStart_toEndOf="@+id/stepsArc"
+            app:layout_constraintTop_toBottomOf="@+id/weightArc"
+            app:layout_constraintVertical_bias="0.625" />
+
+        <Button
+            android:id="@+id/updateWeight"
+            android:layout_width="125dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginEnd="60dp"
+            android:layout_marginBottom="68dp"
+            android:background="@drawable/buttonshape"
+            android:text="update"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintBottom_toTopOf="@+id/steps"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/weightArc" />
+
+        <Button
+            android:id="@+id/updateSteps"
+            android:layout_width="125dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="31dp"
+            android:layout_marginEnd="62dp"
+            android:layout_marginBottom="124dp"
+            android:background="@drawable/buttonshape"
+            android:text="update"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/stepsArc" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+</FrameLayout>

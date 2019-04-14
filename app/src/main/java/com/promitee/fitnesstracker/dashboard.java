@@ -165,7 +165,7 @@ public class dashboard extends AppCompatActivity implements NavigationView.OnNav
         int id = item.getItemId();
 
         if (id == R.id.maps) {
-            // Handle the camera action
+            startActivity(new Intent(dashboard.this,NearestPark.class));
         } else if (id == R.id.firebase) {
 
         }else if (id == R.id.nav_share) {

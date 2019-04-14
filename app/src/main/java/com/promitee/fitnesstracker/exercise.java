@@ -182,13 +182,14 @@ public class exercise extends Fragment implements SensorEventListener {
             val = true ;
             Toast.makeText(getActivity().getApplicationContext(),"Start Walking. Max Calibration Time Required : 30s",Toast.LENGTH_SHORT).show();
             b.setText("Stop");
-            b.setBackgroundResource(R.drawable.stopshape);
+            b.setBackgroundResource(R.drawable.stopshape); //e
 
             StartTime = SystemClock.uptimeMillis();
             handler.postDelayed(runnable, 0);
         }
         else{
             val = false ;
+
             handler.removeCallbacks(runnable);
 
             database.insertToClientHistory(getArguments().getInt("client_id"),counts,(float)(getArguments().getFloat("weight")*counts*0.26/cal)) ;

@@ -1,6 +1,9 @@
 package com.promitee.fitnesstracker;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -11,11 +14,20 @@ import android.os.SystemClock;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 
 import java.text.DecimalFormat;
 import java.util.Objects;
@@ -48,6 +60,8 @@ public class exercise extends Fragment implements SensorEventListener {
     Handler handler;
     int Seconds, Minutes, MilliSeconds ;
 
+    //FirebaseDatabase
+
     public exercise() {
         // Required empty public constructor
     }
@@ -57,6 +71,7 @@ public class exercise extends Fragment implements SensorEventListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.exercise, container, false);
+
 
         val = false ;
         count = view.findViewById(R.id.myArc) ;
@@ -101,7 +116,6 @@ public class exercise extends Fragment implements SensorEventListener {
 
         return view;
     }
-
 
     @Override
     public void onSensorChanged(SensorEvent event) {
@@ -191,6 +205,26 @@ public class exercise extends Fragment implements SensorEventListener {
             val = false ;
 
             handler.removeCallbacks(runnable);
+            final String s = "Steps "+String.valueOf(counts)+ " Calories= "+String.valueOf((float)(getArguments().getFloat("weight")*counts*0.26/cal))+" miles="+String.valueOf(new DecimalFormat(".##").format(counts*(1.0/2200.0))) ;
+            new AlertDialog.Builder(getActivity())
+                    .setTitle("Log Out")
+                    .setMessage(s)
+                    .setPositiveButton("Share Activity Details", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+                            sharingIntent.setType("text/plain");
+                            String shareBodyText = s ;
+                            sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT,"Fitness Tracker");
+                            sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBodyText);
+                            startActivity(Intent.createChooser(sharingIntent, "Sharing Option"));
+                        }
+                    })
+
+                    // A null listener allows the button to dismiss the dialog and take no further action.
+                    .setNegativeButton("Continue", null)
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
+
 
             database.insertToClientHistory(getArguments().getInt("client_id"),counts,(float)(getArguments().getFloat("weight")*counts*0.26/cal)) ;
 
@@ -217,6 +251,8 @@ public class exercise extends Fragment implements SensorEventListener {
 
             mile.setProgress(0,String.valueOf(0)) ;
             mile.invalidate();
+
+
 
         }
     }

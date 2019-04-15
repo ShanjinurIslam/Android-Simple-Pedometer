@@ -7,16 +7,12 @@
         <item
             android:id="@+id/maps"
             android:icon="@drawable/maps"
-            android:title="Maps" />
+            android:title="My Location" />
         <item
             android:id="@+id/firebase"
             android:icon="@drawable/firebase"
             android:title="Sync to FireBase" />
 
-        <item
-            android:id="@+id/settings"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
     </group>
 
     <item android:title="Communicate">

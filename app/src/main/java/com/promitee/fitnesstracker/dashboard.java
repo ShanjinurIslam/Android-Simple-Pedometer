@@ -165,13 +165,17 @@ public class dashboard extends AppCompatActivity implements NavigationView.OnNav
         int id = item.getItemId();
 
         if (id == R.id.maps) {
-            startActivity(new Intent(dashboard.this,NearestPark.class));
+            startActivity(new Intent(dashboard.this, mylocation.class));
         } else if (id == R.id.firebase) {
-
+            //couldn't do it
         }else if (id == R.id.nav_share) {
-
-        }else if (id == R.id.settings) {
-
+            Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+            sharingIntent.setType("text/plain");
+            String shareBodyText = "Hey I am using fitness tracker.";
+            sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT,"Promotion");
+            sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBodyText);
+            startActivity(Intent.createChooser(sharingIntent, "Sharing Option"));
+            return true;
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

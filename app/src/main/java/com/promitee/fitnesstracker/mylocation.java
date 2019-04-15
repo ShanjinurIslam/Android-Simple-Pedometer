@@ -10,14 +10,11 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.widget.Toast;
 
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 
-public class NearestPark extends FragmentActivity implements
+public class mylocation extends FragmentActivity implements
         GoogleMap.OnMyLocationButtonClickListener,
         GoogleMap.OnMyLocationClickListener,
         OnMapReadyCallback,
@@ -41,7 +38,7 @@ public class NearestPark extends FragmentActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_nearest_park);
+        setContentView(R.layout.activity_my_location);
 
         SupportMapFragment mapFragment =
                 (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
@@ -51,7 +48,6 @@ public class NearestPark extends FragmentActivity implements
     @Override
     public void onMapReady(GoogleMap map) {
         mMap = map;
-
         mMap.setOnMyLocationButtonClickListener(this);
         mMap.setOnMyLocationClickListener(this);
         enableMyLocation();
@@ -64,7 +60,7 @@ public class NearestPark extends FragmentActivity implements
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
             // Permission to access the location is missing.
-            PermissionUtils.requestPermission(NearestPark.this, LOCATION_PERMISSION_REQUEST_CODE,
+            PermissionUtils.requestPermission(mylocation.this, LOCATION_PERMISSION_REQUEST_CODE,
                     Manifest.permission.ACCESS_FINE_LOCATION, true);
         } else if (mMap != null) {
             // Access to the location has been granted to the app.
